@@ -1,0 +1,90 @@
+server:
+  port: 8080
+  address: 0.0.0.0
+
+spring:
+  datasource:
+    url: jdbc:postgresql://traveling-partner-db-do-user-33777888-0.j.db.ondigitalocean.com:25060/defaultdb?sslmode=require
+    username: doadmin
+    password: AVNS_E9uvWWQUmr_sdjQPMqO
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 200
+      minimum-idle: 5
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      leak-detection-threshold: 20000
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: travelingpartnernetwork@gmail.com
+    password: siwo gqso lgwv bnex
+
+    properties:
+      mail:
+        smtp:
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+
+        debug: true
+
+jwt:
+  secret: c2VjdXJlLXNlY3JldC1rZXktZm9yLXRlc3RpbmcxMjM0NTY3OA==
+  expiration: 86400000
+
+digitalocean:
+  spaces:
+    key: DO00PQHAPY46WHRAB3PR
+    secret: nbKxHF0e/XWcWcPmttp46QTOmb5cZA/0ACNtWl2wjc0
+    bucket: traveling-partner-storage
+    endpoint: https://nyc3.digitaloceanspaces.com
+    region: nyc3
+    base-url: https://traveling-partner-storage.nyc3.digitaloceanspaces.com
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+  show-actuator: true
+
+contactus:
+  upload:
+    dir: C:/TravelPartner/uploads/contactus
+    allowed-types: jpg,png
+    max-size: 10MB
+
+google:
+  maps:
+    api-key: AIzaSyBACgm9N7EFtjE9dodIejEU_N7VpI7z_ME
+
+logging:
+  level:
+    org.springframework.mail: DEBUG
+    jakarta.mail: DEBUG
